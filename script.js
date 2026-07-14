@@ -1,4 +1,4 @@
-// ====== GOOGLE FIREBASE CONFIGURATION (Abdul's Milkshop Project) ======
+// ====== GOOGLE FIREBASE CONFIGURATION ======
 const firebaseConfig = {
   apiKey: "AIzaSyDXYIRG4LGC69AjZz4V3zPRowPTacBYifk",
   authDomain: "milkshop-879d6.firebaseapp.com",
@@ -19,10 +19,10 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const storage = getStorage(app);
 
-// Core Document Reference for Abdul's Storefront Configurations
+// Core Document Reference
 const webConfigDocRef = doc(db, "milkshop_config", "storefront");
 
-// Default Fallback Configurations (If database is empty initially)
+// Default Fallback Configurations
 let currentConfig = {
     adminPass: "milkshopadmin",
     storePhone: "923019215448",
@@ -78,7 +78,7 @@ function applyConfigToUI() {
     const locBtn = document.getElementById('dynamicLocBtn');
     if (locBtn) locBtn.href = currentConfig.storeMapLink;
 
-    // Render Images (Synced across all screens!)
+    // Render Images
     if (document.getElementById('shopImg1')) document.getElementById('shopImg1').src = currentConfig.img1;
     if (document.getElementById('shopImg2')) document.getElementById('shopImg2').src = currentConfig.img2;
     if (document.getElementById('shopImg3')) document.getElementById('shopImg3').src = currentConfig.img3;
