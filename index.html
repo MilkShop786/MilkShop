@@ -4,25 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Milk Gallery | Premium Fresh Dairy</title>
+    <!-- Fonts & FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="dark-theme" id="mainBody">
+<body class="light-theme" id="mainBody">
 
     <!-- Navigation Bar -->
     <header class="navbar">
         <div class="container nav-container">
-            <!-- Glowing Logo (Dynamic) -->
+            <!-- Glowing Dynamic Logo -->
             <div class="brand" id="logoArea">
                 <span class="brand-icon"><i class="fa-solid fa-cow"></i></span>
                 <span class="brand-name" id="dynamicLogoText">Milk<span>Gallery</span></span>
             </div>
             
             <div class="nav-actions">
-                <!-- Dark/Light Theme Toggle for Main Website -->
+                <!-- Theme Toggle (Blue/White optimized) -->
                 <button onclick="toggleMainTheme()" class="theme-btn" id="mainThemeBtn">
-                    <i class="fa-solid fa-sun"></i>
+                    <i class="fa-solid fa-moon"></i>
                 </button>
                 
                 <!-- Dynamic Location Button -->
@@ -42,8 +43,9 @@
             <p>Hamara doodh bilkul taza aur har qisam ki milawat se pak hai. Aapki sehat hamari pehli tarjeeh hai.</p>
         </section>
 
-        <!-- Dynamic Product Cards (Multiple Images Support) -->
+        <!-- Product Grid -->
         <section class="products-grid" id="productsContainer">
+            <!-- Card 1 -->
             <div class="product-card">
                 <div class="img-wrapper">
                     <img id="shopImg1" src="https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&q=80&w=800" alt="Product">
@@ -55,6 +57,7 @@
                 </div>
             </div>
 
+            <!-- Card 2 -->
             <div class="product-card">
                 <div class="img-wrapper">
                     <img id="shopImg2" src="https://images.unsplash.com/photo-1528498033373-3c6c08e93d79?auto=format&fit=crop&q=80&w=800" alt="Product">
@@ -66,6 +69,7 @@
                 </div>
             </div>
 
+            <!-- Card 3 -->
             <div class="product-card">
                 <div class="img-wrapper">
                     <img id="shopImg3" src="https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&q=80&w=800" alt="Product">
@@ -78,7 +82,7 @@
             </div>
         </section>
 
-        <!-- WhatsApp Order Button (Dynamic) -->
+        <!-- WhatsApp CTA -->
         <section class="cta-section">
             <div class="cta-card">
                 <h2>Ghar Baithe Order Karein</h2>
@@ -90,11 +94,9 @@
         </section>
     </main>
 
-    <!-- Footer -->
+    <!-- Footer without any admin button (Completely Hidden Secure Design) -->
     <footer class="footer">
-        <p>&copy; 2026 Milk Gallery. All Rights Reserved.</p>
-        <!-- Chota aur saaf 'Secure Login' text jo dot se behtar aur asan hai click karne me -->
-        <a href="admin.html" class="admin-portal-link"><i class="fa-solid fa-lock-open"></i> Portal</a>
+        <p>&copy; 2026 Milk Gallery. All Rights Reserved. Pure and Healthy.</p>
     </footer>
 
     <script src="script.js"></script>
