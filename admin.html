@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milk Gallery | Super Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="admin-body">
+
+    <!-- PASSWORD LOGIN WALL -->
+    <div id="loginGate" class="gate-overlay">
+        <div class="gate-card">
+            <div class="gate-icon"><i class="fa-solid fa-user-shield"></i></div>
+            <h2>Admin Dashboard</h2>
+            <p>Apna secret code enter karke settings open karein.</p>
+            <div class="input-container">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" id="gatePassword" placeholder="Enter Access Code">
+            </div>
+            <button onclick="verifyGatePassword()" class="btn-gate">Verify & Unlock</button>
+            <a href="index.html" class="back-to-store"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+        </div>
+    </div>
+
+    <!-- MAIN ADMIN CONTROL PANEL -->
+    <div id="adminDashboard" class="admin-dashboard-container hidden">
+        <aside class="admin-sidebar">
+            <div class="sidebar-brand">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                <span>Super Admin</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="active"><i class="fa-solid fa-gears"></i> Core Settings</a>
+                <button onclick="lockDashboard()" class="logout-btn"><i class="fa-solid fa-power-off"></i> Lock Panel</button>
+            </nav>
+        </aside>
+
+        <main class="admin-main">
+            <header class="admin-topbar">
+                <h2>Live Website Controller</h2>
+                <!-- Dark / Light theme selector for admin page -->
+                <div class="theme-toggle-area">
+                    <span id="themeLabel">Dark Mode</span>
+                    <label class="switch">
+                        <input type="checkbox" id="themeCheckbox" onchange="toggleAdminTheme()">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </header>
+
+            <div class="admin-grid">
+                <!-- 1. Credentials & Contact Info -->
+                <div class="admin-widget">
+                    <div class="widget-header">
+                        <div class="widget-icon"><i class="fa-solid fa-sliders"></i></div>
+                        <h3>Contact & Security</h3>
+                    </div>
+                    <p class="widget-desc">Website ke links aur password tabdeel karein.</p>
+                    
+                    <div class="input-field">
+                        <label>Change Master Password</label>
+                        <input type="password" id="adminNewPass" placeholder="Enter new password">
+                    </div>
+
+                    <div class="input-field">
+                        <label>WhatsApp Number (e.g. 923019215448)</label>
+                        <input type="text" id="adminPhone" placeholder="Enter phone number without + or spaces">
+                    </div>
+
+                    <div class="input-field">
+                        <label>Google Map Location Link</label>
+                        <input type="text" id="adminMapLink" placeholder="Paste Google Map URL">
+                    </div>
+
+                    <button onclick="saveContactAndSecurity()" class="btn-widget-primary">Save Core Info</button>
+                </div>
+
+                <!-- 2. Logo & Branding Customizer -->
+                <div class="admin-widget">
+                    <div class="widget-header">
+                        <div class="widget-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                        <h3>Logo & Glow Customizer</h3>
+                    </div>
+                    <p class="widget-desc">Apni website ka logo name aur glow color manage karein.</p>
+                    
+                    <div class="input-field">
+                        <label>Logo Text</label>
+                        <input type="text" id="adminLogoText" placeholder="e.g. Milk Gallery">
+                    </div>
+
+                    <div class="input-field">
+                        <label>Logo Glow Effect Color</label>
+                        <select id="adminLogoGlow">
+                            <option value="rgba(245, 158, 11, 0.6)">Golden Glow</option>
+                            <option value="rgba(34, 197, 94, 0.6)">Green Glow</option>
+                            <option value="rgba(59, 130, 246, 0.6)">Blue Glow</option>
+                            <option value="rgba(239, 68, 68, 0.6)">Red Glow</option>
+                        </select>
+                    </div>
+
+                    <button onclick="saveBranding()" class="btn-widget-primary">Update Logo Style</button>
+                </div>
+
+                <!-- 3. Multiple Photo Uploads -->
+                <div class="admin-widget full-width-widget">
+                    <div class="widget-header">
+                        <div class="widget-icon"><i class="fa-solid fa-images"></i></div>
+                        <h3>Upload Dynamic Product Images (Up to 3 Photos)</h3>
+                    </div>
+                    <p class="widget-desc">Apne laptop ya mobile se teeno cards ki images ek sath badlein.</p>
+                    
+                    <div class="upload-row">
+                        <div class="input-field">
+                            <label>Product 1 Image</label>
+                            <input type="file" id="fileUpload1" accept="image/*" class="file-picker">
+                        </div>
+                        <div class="input-field">
+                            <label>Product 2 Image</label>
+                            <input type="file" id="fileUpload2" accept="image/*" class="file-picker">
+                        </div>
+                        <div class="input-field">
+                            <label>Product 3 Image</label>
+                            <input type="file" id="fileUpload3" accept="image/*" class="file-picker">
+                        </div>
+                    </div>
+                    
+                    <button onclick="publishImages()" class="btn-widget-success">Publish All Live Images</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
