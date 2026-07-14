@@ -1,4 +1,4 @@
-/* CSS RESET & MODERN VARIABLES */
+/* ROOT VARIABLES: ROYAL BLUE & CLEAN WHITE COMBINATION */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,30 +6,29 @@
 }
 
 :root {
-    /* Dark Theme (Default) */
-    --bg-dark: #07090e;
-    --bg-card: #11151d;
-    --text-white: #ffffff;
-    --text-muted: #94a3b8;
-    --gold: #f59e0b;
-    --green: #10b981;
-    --border: #1e293b;
-    --glow-color: rgba(245, 158, 11, 0.5);
+    --primary-blue: #2563eb;       /* Royal Blue */
+    --hover-blue: #1d4ed8;
+    --light-bg: #f8fafc;           /* Milk/Slate White */
+    --card-white: #ffffff;
+    --text-dark: #0f172a;          /* Rich Charcoal */
+    --text-muted: #64748b;         /* Slate Gray */
+    --border-color: #e2e8f0;
+    --glow-color: rgba(37, 99, 235, 0.4);
 }
 
-/* Light Theme overrides */
-.light-theme {
-    --bg-dark: #f8fafc;
-    --bg-card: #ffffff;
-    --text-white: #0f172a;
-    --text-muted: #64748b;
-    --border: #e2e8f0;
+/* Dark Mode Alternate Option */
+.dark-theme {
+    --light-bg: #0b0f19;
+    --card-white: #131a26;
+    --text-dark: #f8fafc;
+    --text-muted: #94a3b8;
+    --border-color: #1e293b;
 }
 
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    background-color: var(--bg-dark);
-    color: var(--text-white);
+    background-color: var(--light-bg);
+    color: var(--text-dark);
     transition: background-color 0.3s ease, color 0.3s ease;
     overflow-x: hidden;
 }
@@ -47,9 +46,9 @@ body {
 
 /* NAVBAR */
 .navbar {
-    background-color: rgba(var(--bg-dark), 0.85);
+    background-color: rgba(var(--card-white), 0.85);
     backdrop-filter: blur(15px);
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--border-color);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -59,29 +58,28 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.2rem 1.5rem;
+    padding: 1.1rem 1.5rem;
 }
 
-/* Glowing Logo & Effect */
+/* Glowing Logo & Pulse Effect */
 .brand {
     display: flex;
     align-items: center;
     gap: 0.6rem;
-    transition: 0.3s;
 }
 
 .brand-icon {
-    background: var(--gold);
-    color: #000;
-    width: 42px;
-    height: 42px;
+    background: var(--primary-blue);
+    color: #ffffff;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     box-shadow: 0 0 20px var(--glow-color);
-    animation: pulseGlow 2s infinite alternate;
+    animation: pulseGlow 2.5s infinite alternate;
 }
 
 @keyframes pulseGlow {
@@ -96,7 +94,7 @@ body {
 }
 
 .brand-name span {
-    color: var(--gold);
+    color: var(--primary-blue);
 }
 
 .nav-actions {
@@ -105,11 +103,11 @@ body {
     gap: 1rem;
 }
 
-/* Theme Switch Button for Main Page */
+/* Light / Dark Mode Icon Button */
 .theme-btn {
-    background: none;
-    border: 1px solid var(--border);
-    color: var(--text-white);
+    background: var(--card-white);
+    border: 1px solid var(--border-color);
+    color: var(--text-dark);
     font-size: 1.1rem;
     cursor: pointer;
     width: 40px;
@@ -122,15 +120,15 @@ body {
 }
 
 .theme-btn:hover {
-    border-color: var(--gold);
-    color: var(--gold);
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
 }
 
 .loc-btn {
     text-decoration: none;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    padding: 0.6rem 1.2rem;
+    background-color: var(--primary-blue);
+    color: #ffffff;
+    padding: 0.6rem 1.3rem;
     border-radius: 50px;
     font-size: 0.85rem;
     font-weight: 700;
@@ -141,21 +139,21 @@ body {
 }
 
 .loc-btn:hover {
-    background-color: var(--gold);
-    color: #000;
+    background-color: var(--hover-blue);
+    transform: translateY(-1px);
 }
 
 /* HERO SECTION */
 .hero {
     text-align: center;
-    margin: 4.5rem auto;
+    margin: 5rem auto;
     max-width: 750px;
 }
 
 .badge {
-    background: rgba(245, 158, 11, 0.1);
-    color: var(--gold);
-    border: 1px solid rgba(245, 158, 11, 0.2);
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--primary-blue);
+    border: 1px solid rgba(37, 99, 235, 0.2);
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 1.5px;
@@ -169,12 +167,13 @@ body {
     font-weight: 800;
     line-height: 1.15;
     margin: 1.8rem 0 1.2rem;
+    letter-spacing: -1px;
 }
 
 .serif-text {
     font-family: 'Playfair Display', serif;
     font-style: italic;
-    color: var(--gold);
+    color: var(--primary-blue);
 }
 
 .hero p {
@@ -191,16 +190,17 @@ body {
 }
 
 .product-card {
-    background-color: var(--bg-card);
-    border: 1px solid var(--border);
+    background-color: var(--card-white);
+    border: 1px solid var(--border-color);
     border-radius: 1.25rem;
     overflow: hidden;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .product-card:hover {
     transform: translateY(-8px);
-    border-color: var(--gold);
+    border-color: var(--primary-blue);
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.08);
 }
 
 .img-wrapper {
@@ -224,7 +224,7 @@ body {
 }
 
 .tag {
-    color: var(--gold);
+    color: var(--primary-blue);
     font-size: 0.75rem;
     text-transform: uppercase;
     font-weight: 700;
@@ -241,12 +241,12 @@ body {
     font-size: 0.95rem;
 }
 
-/* WHATSAPP CTA CARD */
+/* WHATSAPP CTA */
 .cta-section {
-    background: linear-gradient(135deg, var(--bg-card), var(--bg-dark));
-    border: 1px solid var(--border);
+    background: var(--card-white);
+    border: 1px solid var(--border-color);
     border-radius: 2rem;
-    padding: 4rem 2.5rem;
+    padding: 4.5rem 2.5rem;
     text-align: center;
     margin-bottom: 6rem;
 }
@@ -254,6 +254,7 @@ body {
 .cta-card h2 {
     font-size: 2.2rem;
     margin-bottom: 0.75rem;
+    letter-spacing: -0.5px;
 }
 
 .cta-card p {
@@ -264,8 +265,8 @@ body {
 
 .wa-btn {
     text-decoration: none;
-    background: linear-gradient(135deg, var(--green), #059669);
-    color: #fff;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #ffffff;
     font-weight: 700;
     padding: 1.1rem 2.5rem;
     border-radius: 50px;
@@ -283,13 +284,10 @@ body {
 
 /* FOOTER */
 .footer {
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--border-color);
     padding: 2.5rem 1.5rem;
     text-align: center;
-    background-color: rgba(var(--bg-dark), 0.5);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background-color: var(--card-white);
 }
 
 .footer p {
@@ -297,88 +295,129 @@ body {
     font-size: 0.9rem;
 }
 
-.admin-portal-link {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 600;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    border: 1px solid var(--border);
-    transition: 0.3s;
-}
-
-.admin-portal-link:hover {
-    color: var(--gold);
-    border-color: var(--gold);
-}
-
 /* ==============================================
-   ADMIN PORTAL DESIGN
+   SCREEN 1: SECURITY GATEWAY DESIGN
    ============================================== */
 .admin-body {
-    background-color: #090c10;
+    background-color: #f1f5f9;
 }
 
 .gate-overlay {
     position: fixed;
     inset: 0;
-    background-color: #07090e;
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    padding: 1rem;
+    padding: 1.5rem;
 }
 
 .gate-card {
-    background-color: #12161f;
-    border: 1px solid #1f2937;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
     border-radius: 1.5rem;
     padding: 3.5rem 2.5rem;
     text-align: center;
     width: 100%;
-    max-width: 440px;
+    max-width: 430px;
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.1);
 }
 
-.gate-icon {
-    font-size: 3.5rem;
-    color: var(--gold);
-    margin-bottom: 1.25rem;
+.gate-header-art {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(37, 99, 235, 0.1);
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    font-size: 2.5rem;
 }
 
 .gate-card h2 {
-    font-size: 1.8rem;
-    color: #fff;
+    font-size: 1.75rem;
+    color: #0f172a;
     margin-bottom: 0.5rem;
+    font-weight: 800;
 }
 
 .gate-card p {
-    color: #9ca3af;
+    color: #64748b;
     font-size: 0.95rem;
     margin-bottom: 2.5rem;
+    line-height: 1.5;
+}
+
+.input-container {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.input-container i {
+    position: absolute;
+    left: 1.1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+}
+
+.input-container input {
+    width: 100%;
+    background-color: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.75rem;
+    padding: 0.9rem 1rem 0.9rem 2.8rem;
+    color: #0f172a;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+.input-container input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
 }
 
 .btn-gate {
     width: 100%;
-    background-color: var(--gold);
-    color: #000;
+    background-color: var(--primary-blue);
+    color: #ffffff;
     font-weight: 700;
     padding: 0.95rem;
     border: none;
     border-radius: 0.75rem;
     cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.btn-gate:hover {
+    background-color: var(--hover-blue);
+    transform: translateY(-1px);
 }
 
 .back-to-store {
     display: inline-block;
     margin-top: 1.5rem;
-    color: #9ca3af;
+    color: #64748b;
     text-decoration: none;
     font-size: 0.9rem;
+    font-weight: 600;
+    transition: 0.3s;
 }
 
-/* ADMIN DASHBOARD */
+.back-to-store:hover {
+    color: var(--primary-blue);
+}
+
+/* ==============================================
+   SCREEN 2: MODERN DASHBOARD DESIGN
+   ============================================== */
 .admin-dashboard-container {
     display: grid;
     grid-template-columns: 280px 1fr;
@@ -405,12 +444,15 @@ body {
     color: #0f172a;
 }
 
+.sidebar-brand i {
+    color: var(--primary-blue);
+}
+
 .sidebar-nav {
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
     margin-top: 3.5rem;
-    height: 100%;
 }
 
 .sidebar-nav a {
@@ -425,8 +467,8 @@ body {
 }
 
 .sidebar-nav a.active {
-    background-color: #f1f5f9;
-    color: #0f172a;
+    background-color: #eff6ff;
+    color: var(--primary-blue);
 }
 
 .logout-btn {
@@ -448,9 +490,6 @@ body {
 }
 
 .admin-topbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     border-bottom: 2px solid #e2e8f0;
     padding-bottom: 1.5rem;
     margin-bottom: 3rem;
@@ -459,9 +498,16 @@ body {
 .admin-topbar h2 {
     font-weight: 800;
     color: #0f172a;
+    font-size: 1.8rem;
 }
 
-/* WIDGETS */
+.topbar-sub {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin-top: 0.25rem;
+}
+
+/* WIDGETS layout */
 .admin-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -473,7 +519,7 @@ body {
     border: 1px solid #e2e8f0;
     border-radius: 1.25rem;
     padding: 2.2rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
 }
 
 .full-width-widget {
@@ -484,23 +530,17 @@ body {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .widget-icon {
     font-size: 1.4rem;
-    color: #3b82f6;
+    color: var(--primary-blue);
 }
 
 .widget-header h3 {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     color: #0f172a;
-}
-
-.widget-desc {
-    font-size: 0.9rem;
-    color: #64748b;
-    margin-bottom: 1.8rem;
 }
 
 .input-field {
@@ -523,6 +563,12 @@ body {
     border-radius: 0.6rem;
     color: #0f172a;
     font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.input-field input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
 }
 
 .upload-row {
@@ -539,55 +585,16 @@ body {
     padding: 0.9rem;
     font-weight: 700;
     cursor: pointer;
+    font-size: 0.95rem;
+    transition: 0.2s;
 }
 
-.btn-widget-primary { background-color: #3b82f6; }
+.btn-widget-primary { background-color: var(--primary-blue); }
+.btn-widget-primary:hover { background-color: var(--hover-blue); }
 .btn-widget-success { background-color: #10b981; }
+.btn-widget-success:hover { background-color: #059669; }
 
-/* Admin Dark Mode Conversion */
-.admin-dark-theme {
-    background-color: #0f172a !important;
-    color: #f1f5f9 !important;
-}
-.admin-dark-theme .admin-sidebar,
-.admin-dark-theme .admin-widget {
-    background-color: #1e293b !important;
-    border-color: #334155 !important;
-}
-.admin-dark-theme h2,
-.admin-dark-theme h3,
-.admin-dark-theme label,
-.admin-dark-theme .sidebar-brand {
-    color: #ffffff !important;
-}
-.admin-dark-theme .admin-topbar {
-    border-bottom-color: #334155;
-}
-.admin-dark-theme .input-field input,
-.admin-dark-theme .input-field select {
-    background-color: #0f172a;
-    border-color: #334155;
-    color: #fff;
-}
-
-/* Switch styling for Admin Theme Toggle */
-.theme-toggle-area {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-weight: 700;
-    font-size: 0.9rem;
-}
-.switch { position: relative; display: inline-block; width: 50px; height: 26px; }
-.switch input { opacity: 0; width: 0; height: 0; }
-.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #cbd5e1; transition: .4s; }
-.slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 4px; bottom: 4px; background-color: white; transition: .4s; }
-input:checked + .slider { background-color: #10b981; }
-input:checked + .slider:before { transform: translateX(24px); }
-.slider.round { border-radius: 34px; }
-.slider.round:before { border-radius: 50%; }
-
-/* Mobile View adjustments */
+/* Responsive Adjustments */
 @media (max-width: 900px) {
     .admin-dashboard-container { grid-template-columns: 1fr; }
     .admin-sidebar { border-right: none; border-bottom: 1px solid #cbd5e1; padding: 1.5rem; }
@@ -596,5 +603,4 @@ input:checked + .slider:before { transform: translateX(24px); }
 }
 @media (max-width: 600px) {
     .hero h1 { font-size: 2.3rem; }
-    .footer { flex-direction: column; gap: 1.25rem; }
 }
